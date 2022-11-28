@@ -1,0 +1,78 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct Node{
+	int data;
+	struct Node* next;
+};
+void append(struct Node**head , int info){
+	struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
+	struct Node* temp = *head;
+	newnode -> data = info;
+	newnode -> next = NULL;
+	if(*head == NULL){
+		*head = newnode;
+		return;
+	}
+	while( temp -> next != NULL){
+		temp = temp -> next;
+	}
+	temp -> next = newnode;
+	return;
+}
+void printlist(struct Node*head){
+	while(head != NULL){
+		printf("%d ",head->data);
+		head = head -> next;
+	}
+	printf("\n");
+}
+void reverse(struct Node*head){
+	int arr[100];
+	int j;
+	int i = 0;
+	struct Node *temp = head;
+	while(temp != NULL){
+		arr[i] = temp -> data;
+		temp = temp -> next;
+		i++;
+	}	
+	
+//	for( j=0 ; j<i ; j++){
+//		printf(" %d " , arr[j]);
+//	}
+	int k = i-1;
+	while(head != NULL){
+		head -> data = arr[k];
+		k--;
+		head = head -> next;
+	}
+	return;
+}
+void reverse2(struct Node**head){
+	struct Node* prev = NULL;
+	struct Node* current = *head;
+	struct Node* next = NULL;
+	while(current != NULL){
+		next = current -> next;
+		current -> next = prev;
+		prev = current;
+		current = next;
+	}
+	*head = prev;
+}
+void main(){
+	struct Node * head = NULL;
+//	for(int i=0 ; i<10 ; i++){
+//		append(&head,i);
+//	}
+	append(&head,1);
+	append(&head,2);
+	append(&head,3);
+	append(&head,4);
+	append(&head,5);
+	printlist(head);
+	reverse(head);
+	printlist(head);
+	reverse2(&head);
+	printlist(head);
+}
