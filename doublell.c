@@ -8,14 +8,14 @@ struct Node{
 void push(struct Node**head , int info){
 	struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
 	newnode -> data = info;
-	newnode -> next = NULL;
-	newnode -> prev = NULL;
+//	newnode -> next = *head;
+//	newnode -> prev = NULL;
 	
 	if(*head == NULL){
 		*head = newnode;
 	}
 	
-	newnode -> next = newnode;
+	newnode -> next = *head;
 	newnode -> prev = NULL;
 	
 	*head = newnode;
