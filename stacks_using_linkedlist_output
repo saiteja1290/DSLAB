@@ -1,0 +1,39 @@
+Implementation of Stack using Linked List
+1. Push
+2. Pop
+3. Display
+4. Exit
+
+Enter your choice : 1
+
+Enter the value to insert: 12
+Node is Inserted
+
+1. Push
+2. Pop
+3. Display
+4. Exit
+
+Enter your choice : 1
+
+Enter the value to insert: 45
+Node is Inserted
+
+1. Push
+2. Pop
+3. Display
+4. Exit
+
+Enter your choice : 1
+
+Enter the value to insert: 56
+Node is Inserted
+
+1. Push
+2. Pop
+3. Display
+4. Exit
+
+Enter your choice : 3
+The stack is 
+56--->45--->12--->NULL
